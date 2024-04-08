@@ -1,4 +1,4 @@
-package teste.start;
+package teste;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -8,9 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 //permitindo que ele configure automaticamente o aplicativo com base nas dependências e nas configurações padrão.
 @EnableAutoConfiguration
 
-//@ComponentScan(basePackages = "teste"): Esta anotação diz ao Spring para escanear o pacote "teste" e seus subpacotes em busca de componentes a serem gerenciados,
+//@ComponentScan: Esta anotação diz ao Spring para escanear o pacote "teste" e seus subpacotes em busca de componentes a serem gerenciados,
 //como controladores, serviços e outros componentes do Spring.
-@ComponentScan(basePackages = "teste")
+@ComponentScan
 
 public class ApplicationStart {
     public static void main(String[] args) {

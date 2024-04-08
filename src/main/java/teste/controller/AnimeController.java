@@ -1,11 +1,14 @@
 package teste.controller;
 
+import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import teste.domain.Anime;
+import teste.util.DateUtil;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +21,11 @@ import java.util.List;
 //localhost:8080/anime/
 @RequestMapping("anime")
 
+@Log4j2
 public class AnimeController {
+
+    @Autowired
+    private DateUtil dateUtil;
 
     //@GetMapping(path = "list"): Esta anotação mapeia solicitações HTTP GET para o método list() dentro do controlador.
     //O parâmetro path = "list" especifica que esse método será acionado quando a parte final do URL da solicitação for "/anime/list".
@@ -27,6 +34,8 @@ public class AnimeController {
 
     //Este é o método que será chamado quando uma solicitação GET for feita para "/anime/list". Ele retorna uma lista de objetos Anime.
     public List<Anime> list(){
+
+        log.info(dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         List<Anime> animes = new ArrayList<>();
         animes.add(new Anime("abc"));
         animes.add(new Anime("cba"));
